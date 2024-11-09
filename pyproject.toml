@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "speech-to-text"
+version = "0.1.0"
+description = ""
+authors = ["Danster2020 <daniel.bleckert@me.com>"]
+readme = "README.md"
+packages = [{include = "speech_to_text"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+vosk = "^0.3.45"
+sounddevice = "^0.5.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
