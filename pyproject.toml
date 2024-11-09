@@ -10,6 +10,9 @@ packages = [{include = "speech_to_text"}]
 python = "^3.11"
 vosk = "^0.3.45"
 sounddevice = "^0.5.1"
+flask = "^3.0.3"
+flask-socketio = "^5.4.1"
+flaskwebgui = "^1.1.6"
 
 
 [build-system]
