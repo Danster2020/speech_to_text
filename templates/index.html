@@ -14,7 +14,9 @@
     <div id="partial-transcription" class="transcription-partial"></div> <!-- New div for partial transcription -->
     <div id="transcription">Börja prata...</div> <!-- Final transcription results -->
 
-    <button onclick="clearText()">Rensa text</button>
+    <footer>
+        <button onclick="clearText()">Rensa text</button>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>

@@ -6,12 +6,13 @@ body {
 }
 
 #transcription {
-    border: 0.2rem solid #ddd;
-    padding: 10px;
+    /* border: 0.2rem solid #ddd; */
+    background-color: rgb(29, 29, 29);
+    padding: 1rem;
     height: 300px;
     overflow-y: auto;
     font-size: xx-large;
-    line-height: 2.5rem;
+    line-height: 2.8rem;
     border-radius: 0.8rem;
 }
 
@@ -22,8 +23,26 @@ button {
 
 .new-line {
     color: white;
+    font-size: larger;
 }
 
 .old-line {
-    color: gray;
+    color: rgb(137, 137, 137);
+}
+
+footer {
+    flex: auto;
+    align-items: center;
+}
+
+button {
+    background-color: rgb(0, 52, 148);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 0.5rem;
 }
