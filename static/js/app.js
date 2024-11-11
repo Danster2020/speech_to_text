@@ -1,5 +1,6 @@
 const socket = io();
 const transcriptionDiv = document.getElementById('transcription');
+const batteryStatusDiv = document.getElementById('battery-status'); // Add a reference to battery status div
 let currentLineIndex = -1; // To track the current line
 let transcriptionLines = []; // Store all transcription lines
 
@@ -29,6 +30,13 @@ socket.on('transcription', function (data) {
         }
         currentLineIndex++;  // Move to the next line for the next transcription
         updateTranscription(); // Update the transcription div with the final result
+    }
+});
+
+// Listen for battery status events
+socket.on('battery_status', function (data) {
+    if (batteryStatusDiv) {
+        batteryStatusDiv.innerText = data.status; // Update the battery status text
     }
 });
 

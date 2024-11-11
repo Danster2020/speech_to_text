@@ -13,6 +13,7 @@ sounddevice = "^0.5.1"
 flask = "^3.0.3"
 flask-socketio = "^5.4.1"
 flaskwebgui = "^1.1.6"
+psutil = "^6.1.0"
 
 
 [build-system]
