@@ -31,7 +31,8 @@ button {
 }
 
 footer {
-    flex: auto;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 

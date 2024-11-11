@@ -6,10 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speech-to-Text Transcription</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* Styling for battery percentage display */
+        #battery-status {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 
 <body>
-    <h2>Speech-to-Text Transcription</h2>
+    <h2>Tal till text transkribering</h2>
 
     <div id="partial-transcription" class="transcription-partial"></div> <!-- New div for partial transcription -->
     <div id="transcription">Börja prata...</div> <!-- Final transcription results -->
@@ -18,8 +31,33 @@
         <button onclick="clearText()">Rensa text</button>
     </footer>
 
+    <!-- Battery percentage display -->
+    <div id="battery-status">Battery: Loading...</div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+    <script>
+        // Function to get the battery percentage
+        function updateBatteryStatus() {
+            if (navigator.getBattery) {
+                navigator.getBattery().then(function (battery) {
+                    const batteryStatus = document.getElementById('battery-status');
+                    batteryStatus.innerText = `Battery: ${Math.round(battery.level * 100)}%`;
+
+                    // Update when battery status changes
+                    battery.addEventListener('levelchange', function () {
+                        batteryStatus.innerText = `Battery: ${Math.round(battery.level * 100)}%`;
+                    });
+                });
+            } else {
+                console.log('Battery API is not supported by this browser.');
+            }
+        }
+
+        // Call the function to update battery status on page load
+        window.onload = updateBatteryStatus;
+    </script>
 </body>
 
 </html>
