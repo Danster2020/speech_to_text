@@ -47,7 +47,7 @@ function updateTranscription() {
     // Loop through the transcription lines and add them
     transcriptionLines.forEach((line, index) => {
         let lineDiv = document.createElement('div');
-        lineDiv.textContent = line + ".";
+        lineDiv.textContent = line.replaceAll("<unk>", "..."); + ".";
 
         // Add class to make the most recent line white, others gray
         if (index === transcriptionLines.length - 1) {
